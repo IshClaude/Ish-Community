@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entertainment - ISH Community</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        header {
+            background-color: #0056b3;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        nav {
+            background: #333;
+            color: white;
+            display: flex;
+            justify-content: space-around;
+            padding: 1rem;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+        }
+        nav a:hover {
+            background: #0056b3;
+            border-radius: 5px;
+        }
+        .container {
+            margin: 20px;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .video, .image {
+            margin: 20px 0;
+            text-align: center;
+        }
+        iframe {
+            width: 100%;
+            max-width: 600px;
+            height: 340px;
+            border: none;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ISH Community</h1>
+        <p>Enjoy and relax with entertainment.</p>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="login.html">Login</a>
+        <a href="signup.html">Sign Up</a>
+        <a href="entertainment.html">Entertainment</a>
+    </nav>
+    <div class="container">
+        <h2>Entertainment</h2>
+        <div class="video">
+            <h3>Watch a Video</h3>
+            <!-- Replace the link with any YouTube video you prefer -->
+            <iframe src="https://www.youtube.com/watch?v=5UNOaxLiHbg" allowfullscreen></iframe>
+        </div>
+        <div class="image">
+            <h3>View an Image</h3>
+            <!-- Replace the link with any image URL you want -->
+            <img src="https://via.placeholder.com/600x400" alt="Placeholder Image">
+        </div>
+    </div>
+</body>
+</html>

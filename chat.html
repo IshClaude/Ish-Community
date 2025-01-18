@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat - ISH Community</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        header {
+            background-color: #0056b3;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        nav {
+            background: #333;
+            color: white;
+            display: flex;
+            justify-content: space-around;
+            padding: 1rem;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+        }
+        nav a:hover {
+            background: #0056b3;
+            border-radius: 5px;
+        }
+        .chat-container {
+            margin: 20px;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .chat-box {
+            height: 400px;
+            overflow-y: scroll;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+        }
+        .chat-box p {
+            margin: 5px 0;
+            padding: 10px;
+            background-color: #e0e0e0;
+            border-radius: 10px;
+            max-width: 70%;
+        }
+        .chat-box .user-message {
+            background-color: #cce5ff;
+            text-align: right;
+        }
+        .message-form {
+            display: flex;
+            gap: 10px;
+        }
+        .message-form input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .message-form button {
+            padding: 10px;
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        .message-form button:hover {
+            background-color: #003d80;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ISH Community</h1>
+        <p>Chat and connect with others.</p>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="login.html">Login</a>
+        <a href="signup.html">Sign Up</a>
+        <a href="entertainment.html">Entertainment</a>
+        <a href="chat.html">Chat</a>
+    </nav>
+    <div class="chat-container">
+        <h2>Chat Room</h2>
+        <div class="chat-box" id="chatBox">
+            <!-- Messages will appear here -->
+        </div>
+        <form class="message-form" id="messageForm">
+            <input type="text" id="messageInput" placeholder="Type your message here..." required>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+    <script>
+        const chatBox = document.getElementById('chatBox');
+        const messageForm = document.getElementById('messageForm');
+        const messageInput = document.getElementById('messageInput');
+
+        // Add a message to the chat
+        messageForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form from refreshing the page
+            const messageText = messageInput.value;
+
+            if (messageText.trim() !== '') {
+                // Create a new message element
+                const message = document.createElement('p');
+                message.classList.add('user-message');
+                message.textContent = messageText;
+
+                // Append the message to the chat box
+                chatBox.appendChild(message);
+
+                // Clear the input field
+                messageInput.value = '';
+
+                // Scroll to the bottom of the chat box
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }
+        });
+    </script>
+</body>
+</html>

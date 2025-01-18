@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - ISH Community</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        header {
+            background-color: #0056b3;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        nav {
+            background: #333;
+            color: white;
+            display: flex;
+            justify-content: space-around;
+            padding: 1rem;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+        }
+        nav a:hover {
+            background: #0056b3;
+            border-radius: 5px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .post-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .post-form input, .post-form textarea, .post-form button {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .post-form button {
+            background-color: #0056b3;
+            color: white;
+            border: none;
+        }
+        .post-form button:hover {
+            background-color: #003d80;
+        }
+        .post {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background: #f9f9f9;
+        }
+        .post h3 {
+            margin: 0 0 10px 0;
+        }
+        .follow-btn {
+            margin-top: 10px;
+            padding: 5px 10px;
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        .follow-btn:hover {
+            background-color: #003d80;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ISH Community</h1>
+        <p>Home - Share your thoughts, photos, and videos.</p>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="login.html">Login</a>
+        <a href="signup.html">Sign Up</a>
+        <a href="entertainment.html">Entertainment</a>
+        <a href="chat.html">Chat</a>
+        <a href="home.html">Posts</a>
+    </nav>
+    <div class="container">
+        <h2>Create a Post</h2>
+        <form class="post-form" id="postForm">
+            <input type="text" id="postTitle" placeholder="Enter your post title" required>
+            <textarea id="postContent" rows="5" placeholder="What's on your mind?" required></textarea>
+            <button type="submit">Post</button>
+        </form>
+        <div id="postsContainer">
+            <!-- Posts will appear here -->
+        </div>
+    </div>
+    <script>
+        const postForm = document.getElementById('postForm');
+        const postsContainer = document.getElementById('postsContainer');
+
+        postForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Stop form from refreshing the page
+
+            const title = document.getElementById('postTitle').value.trim();
+            const content = document.getElementById('postContent').value.trim();
+
+            if (title && content) {
+                // Create a post element
+                const post = document.createElement('div');
+                post.classList.add('post');
+                post.innerHTML = `
+                    <h3>${title}</h3>
+                    <p>${content}</p>
+                    <button class="follow-btn">Follow</button>
+                `;
+
+                // Append the post to the container
+                postsContainer.prepend(post);
+
+                // Clear the form
+                postForm.reset();
+            }
+        });
+    </script>
+</body>
+</html>
